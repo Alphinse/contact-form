@@ -1,0 +1,307 @@
+/* Add styles here */
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header */
+  header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  header .menu-toggle {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+  
+  header .menu-toggle span.line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: 0.4s;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  /* Change the lines into an 'X' */
+  .menu-toggle.active .line:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  
+  .menu-toggle.active .line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.active .line:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+  
+  /* Sidebar */
+  aside {
+    background-color: #f4f4f4;
+    padding: 2rem 1rem;
+    position: fixed;
+    top: 4rem; /* Adjust based on header height */
+    bottom: 0;
+    width: 200px;
+    overflow-y: auto;
+  }
+  
+  aside nav ul {
+    list-style: none;
+  }
+  
+  aside nav ul li {
+    margin-bottom: 1rem;
+  }
+  
+  aside nav ul li a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  /* Main content */
+  main {
+    margin-left: 220px; /* Adjust based on sidebar width */
+    padding: 2rem;
+    margin-top: 4rem; /* Adjust based on header height */
+  }
+  
+  section {
+    margin-bottom: 2rem;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 9999;
+  }
+  
+  /* Form Contact */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-top: 1rem;
+  }
+  
+  input,
+  button {
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  button {
+    margin-top: 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
+  
+  /* Notification styles */
+  .notification {
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #f44336; /* Red */
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+  }
+  
+  .notification.success {
+    background-color: #4caf50; /* Green */
+  }
+  
+  .notification .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+  }
+  
+  .notification .closebtn:hover {
+    color: black;
+  }
+  
+  /* Home & About */
+  #home,
+  #about,
+  #project,
+  #contact {
+    padding: 1rem;
+  }
+  
+  .home-content,
+  .about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .home-content .description,
+  .about-content .description {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .home-content .image,
+  .about-content .image {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .home-content img,
+  .about-content img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  /* Project cards */
+  .project-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .project-card img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    aside {
+      display: none;
+    }
+  
+    header .menu-toggle {
+      display: block;
+    }
+  
+    main {
+      margin-left: 0;
+      margin-top: 4rem; /* Adjust based on header height */
+    }
+  
+    .show-sidebar {
+      display: block;
+      position: fixed;
+      top: 4rem; /* Adjust based on header height */
+      bottom: 0;
+      width: 60%;
+      height: 100%;
+      background-color: #f4f4f4;
+      padding: 2rem 1rem;
+      z-index: 1000;
+      overflow-y: auto;
+    }
+  
+    .home-content,
+    .about-content {
+      flex-direction: column;
+    }
+  
+    .home-content .image,
+    .about-content .image {
+      order: -1;
+    }
+  }
+  
+  /* Responsive styles for project cards */
+  .projects-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  
+  @media (max-width: 1200px) {
+    .projects-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .projects-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Styles for contact form */
+  .form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .form-container form label {
+    margin-bottom: 4px;
+  }
+  
+  .form-container form input,
+  .form-container form textarea {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .form-container form button {
+    padding: 10px;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
