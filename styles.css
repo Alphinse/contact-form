@@ -279,6 +279,9 @@ footer a:hover {
     .projects-container {
       grid-template-columns: repeat(2, 1fr);
     }
+    #contact-form {
+      
+    }
   }
   
   @media (max-width: 768px) {
