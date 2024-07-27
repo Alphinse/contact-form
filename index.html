@@ -167,31 +167,7 @@
     <p>&copy; 2023 My Portfolio. All rights reserved.</p>
   </footer>
 
-  <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const sidebar = document.getElementById('sidebar');
-
-    menuToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('open');
-      menuToggle.classList.toggle('open');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
-        sidebar.classList.remove('open');
-        menuToggle.classList.remove('open');
-      }
-    });
-
-    // Membatasi input hanya angka untuk field NIS, NISN, NIK, KK, dan phone
-    const numberFields = ['nis', 'nisn', 'nik', 'kk', 'phone'];
-    numberFields.forEach((fieldId) => {
-      const field = document.getElementById(fieldId);
-      field.addEventListener('input', (e) => {
-        field.value = field.value.replace(/\D/, '');
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 
 </html>
