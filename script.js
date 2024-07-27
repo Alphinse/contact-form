@@ -56,37 +56,41 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("Please enter a valid phone number (10-12 digits).");
       return;
     }
-    const emailInput = document.getElementById('email').value;
+    const emailInput = document.getElementById("email").value;
     const emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|.+\.(id|org))$/;
     if (!emailPattern.test(emailInput)) {
-      alert('Email harus berakhiran @gmail.com, .id, atau .org');
+      alert("Email harus berakhiran @gmail.com, .id, atau .org");
       return;
     }
 
-    const nikInput = document.getElementById('nik').value;
-    const kkInput = document.getElementById('kk').value;
+    const nikInput = document.getElementById("nik").value;
+    const kkInput = document.getElementById("kk").value;
     const numberPattern = /^[0-9]+$/;
-    if (!numberPattern.test(phoneValue) || !numberPattern.test(nikInput) || !numberPattern.test(kkInput)) {
-      alert('Nomor telepon, NIK, dan KK harus berupa angka');
+    if (
+      !numberPattern.test(phoneValue) ||
+      !numberPattern.test(nikInput) ||
+      !numberPattern.test(kkInput)
+    ) {
+      alert("Nomor telepon, NIK, dan KK harus berupa angka");
       return;
     }
 
-    const ktpFile = document.getElementById('ktp').files[0];
-    const kkFile = document.getElementById('kk-photo').files[0];
-    const ijazahFile = document.getElementById('ijazah').files[0];
+    const ktpFile = document.getElementById("ktp").files[0];
+    const kkFile = document.getElementById("kk-photo").files[0];
+    const ijazahFile = document.getElementById("ijazah").files[0];
 
-    if (ktpFile && !ktpFile.type.includes('jpeg')) {
-      alert('Foto KTP harus berformat jpeg');
+    if (!ktpFile || !ktpFile.type.includes("jpeg")) {
+      alert("Foto KTP harus berformat jpeg dan diambil dari kamera");
       return;
     }
 
-    if (kkFile && !kkFile.type.includes('jpeg')) {
-      alert('Foto KK harus berformat jpeg');
+    if (!kkFile || !kkFile.type.includes("jpeg")) {
+      alert("Foto KK harus berformat jpeg dan diambil dari kamera");
       return;
     }
 
-    if (ijazahFile && !ijazahFile.type.includes('jpeg')) {
-      alert('Foto Ijazah harus berformat jpeg');
+    if (!ijazahFile || !ijazahFile.type.includes("jpeg")) {
+      alert("Foto Ijazah harus berformat jpeg dan diambil dari kamera");
       return;
     }
 
@@ -99,9 +103,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const notification = document.createElement("div");
     notification.className = `notification ${type}`;
     notification.innerHTML = `
-      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-      ${message}
-    `;
+          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+          ${message}
+        `;
     document.body.appendChild(notification);
     notification.style.display = "block";
     setTimeout(() => {
@@ -111,25 +115,27 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Live validation for email and numeric inputs
-  const emailInput = document.getElementById('email');
-  const phoneInput = document.getElementById('phone');
-  const nikInput = document.getElementById('nik');
-  const kkInput = document.getElementById('kk');
+  const emailInput = document.getElementById("email");
+  const phoneInput = document.getElementById("phone");
+  const nikInput = document.getElementById("nik");
+  const kkInput = document.getElementById("kk");
 
-  emailInput.addEventListener('input', function () {
+  emailInput.addEventListener("input", function () {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|\.id|\.org)$/;
     if (!emailPattern.test(emailInput.value)) {
-      emailInput.setCustomValidity('Email harus berakhiran @gmail.com, .id, atau .org');
+      emailInput.setCustomValidity(
+        "Email harus berakhiran @gmail.com, .id, atau .org"
+      );
     } else {
-      emailInput.setCustomValidity('');
+      emailInput.setCustomValidity("");
     }
   });
 
   function validateNumericInput(input) {
-    input.addEventListener('input', function () {
+    input.addEventListener("input", function () {
       const value = input.value;
       if (!/^\d*$/.test(value)) {
-        input.value = value.replace(/\D/g, '');
+        input.value = value.replace(/\D/g, "");
       }
     });
   }
