@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8"8
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio Website</title>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -26,6 +27,11 @@
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#daftar" class="nav-link">Daftar</a></li>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <div id="profile" style="display: none;">
+          <img id="profile-img" src="" alt="Profile Image" />
+          <span id="profile-name"></span>
+        </div>
       </ul>
     </nav>
   </aside>
@@ -36,7 +42,7 @@
       <div class="home-content">
         <div class="description">
           <p>Welcome to My portfolio website!</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore a ducimus nisi cumque et aliquam fugit quis consequuntur dolorem officia amet, quas error vero, delectus repudiandae velit quibusdam quidem harum non. Voluptatum, ducimus ipsa doloribus cupiditate, quod incidunt animi unde sit itaque sequi veniam facere.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
         </div>
         <div class="image">
           <img src='https://images.unsplash.com/photo-1593720213428-28a5b9e94613?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjE4ODYzNjd8&ixlib=rb-4.0.3&q=85' alt='Web Development'>
@@ -45,14 +51,84 @@
     </section>
 
     <section id="about" class="content-section">
-      <h2>About</h2>
-      <div class="about-content">
-        <div class="description">
-          <p>Welcome to My portfolio website!</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore a ducimus nisi cumque et aliquam fugit quis consequuntur dolorem officia amet, quas error vero, delectus repudiandae velit quibusdam quidem harum non. Voluptatum, ducimus ipsa doloribus cupiditate, quod incidunt animi unde sit itaque sequi veniam facere.</p>
+      <h2>About Us</h2>
+      <div class="card-container">
+        <!-- Card 1 -->
+        <div class="card">
+          <div class="card-content">
+            <div class="card-info">
+              <h3>John Doe</h3>
+              <p>NIP: 123456</p>
+              <p>Email: john@example.com</p>
+              <button class="detail-btn" onclick="showDetails(this)">Detail</button>
+            </div>
+            <div class="card-image">
+              <img src='image/javascript.png' alt=''>
+            </div>
+          </div>
+          <div class="profile-details">
+            <form>
+              <p>Nama: John Doe</p>
+              <p>Nomor Telepon: 1234567890</p>
+              <p>Email: john@example.com</p>
+              <p>Keahlian: Web Development</p>
+              <p>Pekerjaan: Software Engineer</p>
+              <p>Alamat: 123 Main St</p>
+              <button type="button" class="back-btn" onclick="hideDetails(this)">Kembali</button>
+            </form>
+          </div>
         </div>
-        <div class="image">
-          <img src='https://images.unsplash.com/photo-1593720219276-0b1eacd0aef4?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjE4ODY2OTh8&ixlib=rb-4.0.3&q=85' alt='Web Programming'>
+
+        <!-- Card 2 -->
+        <div class="card">
+          <div class="card-content">
+            <div class="card-info">
+              <h3>Jane Smith</h3>
+              <p>NIP: 789012</p>
+              <p>Email: jane@example.com</p>
+              <button class="detail-btn" onclick="showDetails(this)">Detail</button>
+            </div>
+            <div class="card-image">
+              <img src='image/vscode.png' alt=''>
+            </div>
+          </div>
+          <div class="profile-details">
+            <form>
+              <p>Nama: Jane Smith</p>
+              <p>Nomor Telepon: 0987654321</p>
+              <p>Email: jane@example.com</p>
+              <p>Keahlian: Graphic Design</p>
+              <p>Pekerjaan: Designer</p>
+              <p>Alamat: 456 Market St</p>
+              <button type="button" class="back-btn" onclick="hideDetails(this)">Kembali</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+          <div class="card-content">
+            <div class="card-info">
+              <h3>Mike Johnson</h3>
+              <p>NIP: 345678</p>
+              <p>Email: mike@example.com</p>
+              <button class="detail-btn" onclick="showDetails(this)">Detail</button>
+            </div>
+            <div class="card-image">
+              <img src='image/html5.png' alt=''>
+            </div>
+          </div>
+          <div class="profile-details">
+            <form>
+              <p>Nama: Mike Johnson</p>
+              <p>Nomor Telepon: 1122334455</p>
+              <p>Email: mike@example.com</p>
+              <p>Keahlian: UI/UX Design</p>
+              <p>Pekerjaan: Designer</p>
+              <p>Alamat: 789 Broadway St</p>
+              <button type="button" class="back-btn" onclick="hideDetails(this)">Kembali</button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -117,23 +193,20 @@
                 <input type="text" id="nisn" name="nisn" required>
               </div>
               <div class="form-group">
-                <label for="nik">NIK</label>
+                <label for="nik">Nomor NIK</label>
                 <input type="text" id="nik" name="nik" required>
               </div>
               <div class="form-group">
-                <label for="kk">KK</label>
+                <label for="kk">Nomor KK</label>
                 <input type="text" id="kk" name="kk" required>
-              </div> <div class="form-group">
-                <label for="nama-ayah">Nama ayah</label>
+              </div>
+              <div class="form-group">
+                <label for="nama-ayah">Nama Ayah</label>
                 <input type="text" id="nama-ayah" name="nama-ayah" required>
               </div>
               <div class="form-group">
-                <label for="nama-ibuK</label>
+                <label for="nama-ibu">Nama Ibu</label>
                 <input type="text" id="nama-ibu" name="nama-ibu" required>
-              </div>
-              <div class="form-group">
-                <label for="nama-ibu">Nama ibu</label>
-                <input type="text" id="nama-ibu" name="kk" required>
               </div>
               <div class="form-group">
                 <label for="phone">Nomor Telepon</label>
@@ -180,22 +253,20 @@
   </footer>
 
   <script src="script.js"></script>
+
   <script>
     const menuToggle = document.getElementById('menu-toggle');
     const sidebar = document.getElementById('sidebar');
-
     menuToggle.addEventListener('click', () => {
       sidebar.classList.toggle('open');
       menuToggle.classList.toggle('open');
     });
-
     document.addEventListener('click', (e) => {
       if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
         sidebar.classList.remove('open');
         menuToggle.classList.remove('open');
       }
     });
-
     // Membatasi input hanya angka untuk field NIS, NISN, NIK, KK, dan phone
     const numberFields = ['nis', 'nisn', 'nik', 'kk', 'phone'];
     numberFields.forEach((fieldId) => {

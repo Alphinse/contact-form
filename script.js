@@ -144,3 +144,43 @@ document.addEventListener("DOMContentLoaded", function () {
   validateNumericInput(nikInput);
   validateNumericInput(kkInput);
 });
+
+function showDetails(button) {
+  const card = button.closest(".card");
+  const cardContent = card.querySelector(".card-content");
+  const profileDetails = card.querySelector(".profile-details");
+  cardContent.style.display = "none";
+  profileDetails.style.display = "block";
+}
+
+function hideDetails(button) {
+  const card = button.closest(".card");
+  const cardContent = card.querySelector(".card-content");
+  const profileDetails = card.querySelector(".profile-details");
+  cardContent.style.display = "flex";
+  profileDetails.style.display = "none";
+}
+
+function onSignIn(googleUser) {
+  // Retrieve the user's profile information
+  var profile = googleUser.getBasicProfile();
+  var profileImg = profile.getImageUrl();
+  var profileName = profile.getName();
+
+  // Update the profile display
+  document.getElementById("profile-img").src = profileImg;
+  document.getElementById("profile-name").textContent = profileName;
+  document.getElementById("profile").style.display = "flex";
+
+  // Hide the Google Sign-In button
+  document.querySelector(".g-signin2").style.display = "none";
+}
+
+function signOut() {
+  var auth2 = gapi.auth2.getAuthInstance();
+  auth2.signOut().then(function () {
+    console.log("User signed out.");
+    document.getElementById("profile").style.display = "none";
+    document.querySelector(".g-signin2").style.display = "block";
+  });
+}
