@@ -272,6 +272,7 @@ button:hover {
 @media (max-width: 1200px) {
   .projects-container {
     grid-template-columns: repeat(2, 1fr);
+    padding-left: 20px;
   }
 }
 
