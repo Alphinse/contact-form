@@ -370,50 +370,73 @@ textarea:focus {
   transition: box-shadow 0.3s ease;
 }
 
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 10px;
+  overflow: hidden;
+  width: calc(33.333% - 20px);
+}
+
 .card-content {
   display: flex;
-  padding: 16px;
 }
 
 .card-info {
+  padding: 15px;
   flex: 1;
 }
 
-.card-info h3 {
-  margin-top: 0;
-}
-
 .card-image {
-  width: 150px;
-  margin-left: 16px;
+  background: #f4f4f4;
+  padding: 10px;
 }
 
 .card-image img {
-  width: 100%;
-  border-radius: 8px;
-}
-
-.detail-btn, .back-btn {
-  margin-top: 8px;
-  padding: 8px 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.detail-btn:hover, .back-btn:hover {
-  background-color: #0056b3;
+  max-width: 100%;
 }
 
 .profile-details {
-  display: none;
-  padding: 16px;
+  width: 100%;
+  max-width: 600px; /* Menetapkan lebar maksimum agar form tidak terlalu lebar pada perangkat besar */
+  margin: 0 auto; /* Memusatkan form di layar */
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Memberi efek bayangan */
+  border-radius: 8px; /* Memberi sudut melengkung */
+  background-color: #f9f9f9; /* Warna latar belakang form */
+}
+
+.profile-details form {
+  display: flex;
+  flex-direction: column; /* Mengatur elemen dalam kolom */
+  gap: 10px; /* Menambahkan jarak antar elemen */
 }
 
 .profile-details form p {
-  margin: 8px 0;
+  margin: 0; /* Menghapus margin default */
+  font-size: 16px; /* Ukuran font yang konsisten */
+}
+
+.back-btn {
+  align-self: flex-start; /* Menjaga tombol 'Kembali' berada di posisi kiri (opsional) */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+}
+
+.back-btn:hover {
+  background-color: #555;
 }
 
 @media (max-width: 768px) {
