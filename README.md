@@ -1,1 +1,1 @@
-A simple HTML/JS/CSS starter template
+Ini merupakan contoh kode untuk materi ini dan di pergunakan sebagai bahan latihan juga merupakan inspirasi dan motivasi dari para youtuber baik dalam negri maupun luar negri yang memang merupakan ahli di bidang website. terimakasih saya sampaikan kepada bapak Sandika Galih Sebagai Dosen Web Programming UNPAS, Dea Afrizal, Rumah Rafif dan yang lainnya yang tidak dapat saya sebutkan satu persatu. 
