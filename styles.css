@@ -207,7 +207,7 @@ button:hover {
 }
 
 /* Project cards */
-.project-card {
+.project-card,.card-container {
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   padding: 1rem;
@@ -217,7 +217,7 @@ button:hover {
   border-radius: 8px;
 }
 
-.project-card img {
+.project-card img,.card-container img {
   width: 100px;
   height: auto;
   margin-bottom: 1rem;
@@ -263,21 +263,21 @@ button:hover {
 }
 
 /* Responsive styles for project cards */
-.projects-container {
+.projects-container,.card-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 
 @media (max-width: 1200px) {
-  .projects-container {
+  .projects-container,.card-container {
     grid-template-columns: repeat(2, 1fr);
     padding-left: 20px;
   }
 }
 
 @media (max-width: 768px) {
-  .projects-container {
+  .projects-container,.card-container {
     grid-template-columns: 1fr;
   }
 }
@@ -356,52 +356,6 @@ textarea:focus {
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.2); /* Subtle shadow effect on focus */
 }
 
-
-.card-container {
-  display: grid;
-  gap: 16px;
-}
-
-.card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: box-shadow 0.3s ease;
-}
-
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.card {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin: 10px;
-  overflow: hidden;
-  width: calc(33.333% - 20px);
-}
-
-.card-content {
-  display: flex;
-}
-
-.card-info {
-  padding: 15px;
-  flex: 1;
-}
-
-.card-image {
-  background: #f4f4f4;
-  padding: 10px;
-}
-
-.card-image img {
-  max-width: 100%;
-}
-
 .profile-details {
   width: 100%;
   max-width: 600px; /* Menetapkan lebar maksimum agar form tidak terlalu lebar pada perangkat besar */
@@ -428,7 +382,7 @@ textarea:focus {
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
-  background-color: #333;
+  background-color: #4f4bcd;
   color: white;
   cursor: pointer;
   font-size: 16px;
@@ -460,18 +414,6 @@ textarea:focus {
   .card-container {
     display: flex;
     flex-direction: column;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .card-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1025px) {
-  .card-container {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
 
