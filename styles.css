@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 /* Reset CSS */
 * {
   margin: 0;
@@ -98,7 +96,7 @@ aside nav ul li a {
 
 /* Main content */
 main {
-  margin-left: 220px; /* Adjust based on sidebar width */
+  margin-left: 20%;
   padding: 2rem;
   margin-top: 4rem; /* Adjust based on header height */
 }
@@ -121,7 +119,6 @@ footer {
 }
 
 /* Form Contact */
-
 input,
 button {
   padding: 0.5rem;
@@ -207,7 +204,8 @@ button:hover {
 }
 
 /* Project cards */
-.project-card,.card-container {
+.project-card,
+.card-container {
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   padding: 1rem;
@@ -217,7 +215,8 @@ button:hover {
   border-radius: 8px;
 }
 
-.project-card img,.card-container img {
+.project-card img,
+.card-container img {
   width: 100px;
   height: auto;
   margin-bottom: 1rem;
@@ -263,21 +262,24 @@ button:hover {
 }
 
 /* Responsive styles for project cards */
-.projects-container,.card-container {
+.projects-container,
+.card-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 
 @media (max-width: 1200px) {
-  .projects-container,.card-container {
+  .projects-container,
+  .card-container {
     grid-template-columns: repeat(2, 1fr);
     padding-left: 20px;
   }
 }
 
 @media (max-width: 768px) {
-  .projects-container,.card-container {
+  .projects-container,
+  .card-container {
     grid-template-columns: 1fr;
   }
 }
@@ -368,71 +370,74 @@ textarea:focus {
 
 .profile-details form {
   display: flex;
-  flex-direction: column; /* Mengatur elemen dalam kolom */
-  gap: 10px; /* Menambahkan jarak antar elemen */
+  flex-wrap: wrap;
+  justify-content: space-between; /* Memberikan ruang di antara item */
 }
 
-.profile-details form p {
-  margin: 0; /* Menghapus margin default */
-  font-size: 16px; /* Ukuran font yang konsisten */
+.form-group {
+  width: calc(50% - 10px); /* Menetapkan lebar setiap grup form dengan pengurangan 10px untuk jarak */
+  margin-bottom: 20px;
 }
 
-.back-btn {
-  align-self: flex-start; /* Menjaga tombol 'Kembali' berada di posisi kiri (opsional) */
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  background-color: #4f4bcd;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-  text-align: center;
+.form-group.full-width {
+  width: 100%; /* Menetapkan lebar penuh untuk grup form yang diinginkan */
 }
 
-.back-btn:hover {
-  background-color: #555;
+.form-group label {
+  display: block;
+  font-weight: bold; /* Memberi penekanan pada label */
+  margin-bottom: 5px; /* Memberikan jarak di bawah label */
 }
 
-@media (max-width: 768px) {
-  aside {
-    display: none;
-  }
-
-  header .menu-toggle {
-    display: block;
-  }
-
-  .home-content {
-    flex-direction: column;
-  }
-
-  .home-content .image {
-    order: -1;
-    margin-bottom: 16px;
-  }
-
-  .card-container {
-    display: flex;
-    flex-direction: column;
-  }
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc; /* Warna border */
+  border-radius: 4px; /* Memberi sudut melengkung */
 }
 
-/* login */
-#profile {
+.profile-picture {
   display: flex;
-  align-items: center;
-  position: absolute;
-  right: 10px;
-  top: 10px;
+  flex-direction: column; /* Mengatur elemen dalam kolom */
+  align-items: center; /* Memusatkan elemen secara horizontal */
+  width: 100%;
+  margin-bottom: 20px;
 }
 
-#profile img {
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
+.profile-picture img {
+  border-radius: 50%; /* Membuat gambar menjadi bulat */
+  width: 150px; /* Lebar gambar */
+  height: 150px; /* Tinggi gambar */
+  object-fit: cover; /* Menyesuaikan gambar agar sesuai dengan area */
+  margin-bottom: 10px; /* Jarak di bawah gambar */
 }
 
-#profile-name {
-  font-size: 16px;
+.profile-picture input[type="file"] {
+  width: 100%;
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.button-container button {
+  padding: 10px 20px;
+  background-color: #4caf50; /* Warna tombol */
+  color: white; /* Warna teks */
+  border: none; /* Tanpa border */
+  border-radius: 4px; /* Memberi sudut melengkung */
+  cursor: pointer;
+}
+
+.button-container button:hover {
+  background-color: #45a049; /* Warna tombol saat dihover */
+}
+
+@media (max-width: 600px) {
+  .form-group {
+    width: 100%; /* Menetapkan lebar penuh untuk perangkat kecil */
+  }
 }
