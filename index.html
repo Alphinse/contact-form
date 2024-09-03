@@ -4,279 +4,380 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Website</title>
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 
-<body>
-  <header>
-    <h1>My Portfolio</h1>
-    <div class="menu-toggle" id="menu-toggle">
-      <span class="line"></span>
-      <span class="line"></span>
-      <span class="line"></span>
+<body class="font-sans">
+
+  <!-- Header -->
+  <header class="bg-blue-600 text-white p-4 fixed w-full top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">Imat <span>Abu</span> Kamal</h1>
+      <button id="menu-toggle" class="lg:hidden block">
+        <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
     </div>
   </header>
 
-  <aside id="sidebar">
+  <!-- Sidebar -->
+  <aside id="sidebar" class="bg-gray-800 text-white w-60 space-y-6 py-20 px-2 fixed inset-y-0 left-0 lg:translate-x-0 transform -translate-x-full transition-transform duration-200 ease-in-out z-20">
     <nav>
-      <ul>
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#daftar" class="nav-link">Daftar</a></li>
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
-        <div id="profile" style="display: none;">
-          <img id="profile-img" src="" alt="Profile Image" />
-          <span id="profile-name"></span>
+      <a href="#" class="flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700" data-section="home">
+        <span class="material-symbols-outlined mr-2">home</span>
+        Home
+      </a>
+      <a href="#" class="flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700" data-section="about">
+        <span class="material-symbols-outlined mr-2">info</span>
+        About
+      </a>
+      <a href="#" class="flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700" data-section="gallery">
+        <span class="material-symbols-outlined mr-2">photo_library</span>
+        Gallery
+      </a>
+      <a href="#" class="flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700" data-section="projects">
+        <span class="material-symbols-outlined mr-2">work</span>
+        Projects
+      </a>
+      <a href="#" class="flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700" data-section="contact">
+        <span class="material-symbols-outlined mr-2">contact_mail</span>
+        Contact
+      </a>
+      <!-- Kursus Menu -->
+      <div class="group">
+        <a href="#" class="flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
+          <span class="material-symbols-outlined mr-2">school</span>
+          Kursus
+          <span class="ml-auto transform transition-transform duration-200 group-hover:rotate-90">▼</span>
+        </a>
+        <div class="hidden group-hover:block ml-8 space-y-2 mt-2">
+          <a href="#" class="block py-2 px-4 rounded transition duration-200 hover:bg-gray-700" data-section="computer-course-link">Komputer</a>
+          <a href="#" class="block py-2 px-4 rounded transition duration-200 hover:bg-gray-700" data-section="web-course-link">Web Programming</a>
+          <a href="#" class="block py-2 px-4 rounded transition duration-200 hover:bg-gray-700" data-section="android-course-link">Android Studio</a>
         </div>
-      </ul>
+      </div>
     </nav>
   </aside>
 
-  <main>
-    <section id="home" class="content-section">
-      <h2>Home</h2>
-      <div class="home-content">
-        <div class="description">
-          <p>Welcome to My portfolio website!</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-        </div>
-        <div class="image">
-          <img src='https://images.unsplash.com/photo-1593720213428-28a5b9e94613?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjE4ODYzNjd8&ixlib=rb-4.0.3&q=85' alt='Web Development'>
-        </div>
-      </div>
-    </section>
+  <!-- Content -->
+  <main id="content" class="lg:ml-64 pt-20 pb-20 ml-0 md:ml-0 p-4">
 
-    <section id="about" class="content-section">
-      <h2>About Us</h2>
-      <div class="card-container">
-        <!-- Card 1 -->
-        <div class="card">
-          <div class="card-content">
-            <div class="card-info">
-              <h3>John Doe</h3>
-              <p>NIP: 123456</p>
-              <p>Email: john@example.com</p>
-              <button class="detail-btn" onclick="showDetails(this)">Detail</button>
-            </div>
-            <div class="card-image">
-              <img src='image/javascript.png' alt=''>
-            </div>
-          </div>
-          <div class="profile-details">
-            <form>
-              <p>Nama: John Doe</p>
-              <p>Nomor Telepon: 1234567890</p>
-              <p>Email: john@example.com</p>
-              <p>Keahlian: Web Development</p>
-              <p>Pekerjaan: Software Engineer</p>
-              <p>Alamat: 123 Main St</p>
-              <button type="button" class="back-btn" onclick="hideDetails(this)">Kembali</button>
-            </form>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="card">
-          <div class="card-content">
-            <div class="card-info">
-              <h3>Jane Smith</h3>
-              <p>NIP: 789012</p>
-              <p>Email: jane@example.com</p>
-              <button class="detail-btn" onclick="showDetails(this)">Detail</button>
-            </div>
-            <div class="card-image">
-              <img src='image/vscode.png' alt=''>
-            </div>
-          </div>
-          <div class="profile-details">
-            <form>
-              <p>Nama: Jane Smith</p>
-              <p>Nomor Telepon: 0987654321</p>
-              <p>Email: jane@example.com</p>
-              <p>Keahlian: Graphic Design</p>
-              <p>Pekerjaan: Designer</p>
-              <p>Alamat: 456 Market St</p>
-              <button type="button" class="back-btn" onclick="hideDetails(this)">Kembali</button>
-            </form>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="card">
-          <div class="card-content">
-            <div class="card-info">
-              <h3>Mike Johnson</h3>
-              <p>NIP: 345678</p>
-              <p>Email: mike@example.com</p>
-              <button class="detail-btn" onclick="showDetails(this)">Detail</button>
-            </div>
-            <div class="card-image">
-              <img src='image/html5.png' alt=''>
-            </div>
-          </div>
-          <div class="profile-details">
-            <form>
-              <p>Nama: Mike Johnson</p>
-              <p>Nomor Telepon: 1122334455</p>
-              <p>Email: mike@example.com</p>
-              <p>Keahlian: UI/UX Design</p>
-              <p>Pekerjaan: Designer</p>
-              <p>Alamat: 789 Broadway St</p>
-              <button type="button" class="back-btn" onclick="hideDetails(this)">Kembali</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="content-section">
-      <h2>Projects</h2>
-      <div class="projects-container">
-        <div class="project-card">
-          <a href=""> <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML5 Logo"></a>
-          <p>HTML5 Project</p>
-        </div>
-        <div class="project-card">
-          <a href=""> <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS3 Logo"></a>
-          <p>CSS3 Project</p>
-        </div>
-        <div class="project-card">
-          <a href=""> <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo"></a>
-          <p>JavaScript Project</p>
-        </div>
-        <div class="project-card">
-          <a href=""> <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React Logo"></a>
-          <p>React Project</p>
-        </div>
-        <div class="project-card">
-          <a href=""><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg" alt="Laravel Logo"></a>
-          <p>Laravel Project</p>
-        </div>
-        <div class="project-card">
-          <a href=""> <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" alt="PHP Logo"></a>
-          <p>PHP Project</p>
-        </div>
-      </div>
-    </section>
-
-    <div class="content">
-      <section id="daftar" class="content-section">
-        <h2>Daftar</h2>
-        <div class="contact-container">
-          <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509186!2d144.9537353153126!3d-37.81627937975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f1f1f1f1%3A0x1a0b1a1b1b1b1b1b!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1590728858819!5m2!1sen!2sau" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-          </div>
-          <div class="form-container">
-            <form id="contact-form" enctype="multipart/form-data" method="post" action="process.php">
-              <div class="form-group">
-                <label for="fullname">Nama Lengkap</label>
-                <input type="text" id="fullname" name="fullname" required>
-              </div>
-              <div class="form-group">
-                <label for="birthplace">Tempat Lahir</label>
-                <input type="text" id="birthplace" name="birthplace" required>
-              </div>
-              <div class="form-group">
-                <label for="birthdate">Tanggal Lahir</label>
-                <input type="date" id="birthdate" name="birthdate" required>
-              </div>
-              <div class="form-group">
-                <label for="nis">NIS</label>
-                <input type="text" id="nis" name="nis" required>
-              </div>
-              <div class="form-group">
-                <label for="nisn">NISN</label>
-                <input type="text" id="nisn" name="nisn" required>
-              </div>
-              <div class="form-group">
-                <label for="nik">Nomor NIK</label>
-                <input type="text" id="nik" name="nik" required>
-              </div>
-              <div class="form-group">
-                <label for="kk">Nomor KK</label>
-                <input type="text" id="kk" name="kk" required>
-              </div>
-              <div class="form-group">
-                <label for="nama-ayah">Nama Ayah</label>
-                <input type="text" id="nama-ayah" name="nama-ayah" required>
-              </div>
-              <div class="form-group">
-                <label for="nama-ibu">Nama Ibu</label>
-                <input type="text" id="nama-ibu" name="nama-ibu" required>
-              </div>
-              <div class="form-group">
-                <label for="phone">Nomor Telepon</label>
-                <input type="text" id="phone" name="phone" required>
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-              </div>
-              <div class="form-group">
-                <label for="photo">Foto (jpeg)</label>
-                <input type="file" id="photo" name="photo" accept="image/jpeg" capture="environment" required>
-              </div>
-              <div class="form-group">
-                <label for="ktp">Foto KTP (jpeg)</label>
-                <input type="file" id="ktp" name="ktp" accept="image/jpeg" capture="environment" required>
-              </div>
-              <div class="form-group">
-                <label for="kk-photo">Foto KK (jpeg)</label>
-                <input type="file" id="kk-photo" name="kk-photo" accept="image/jpeg" capture="environment" required>
-              </div>
-              <div class="form-group">
-                <label for="ijazah">Foto Ijazah (jpeg)</label>
-                <input type="file" id="ijazah" name="ijazah" accept="image/jpeg" capture="environment" required>
-              </div>
-
-              <div class="form-group">
-                <label for="alamat">Alamat</label>
-                <textarea id="alamat" name="alamat" rows="5" width="100%" required></textarea>
-              </div>
-
-              <div class="form-group">
-                <button type="submit">Daftar</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
+    <div class="marquee">
+      <span>Selamat datang di Website resmi kami, "bijaklah dalam mencerna informasi dan menggunakan teknologi".</span>
     </div>
+
+    <section id="home" class="visible">
+      <div id="carousel" class="relative overflow-hidden">
+        <!-- Carousel Items -->
+        <div class="carousel-item bg-cover bg-center visible" style="background-image: url('https://images.unsplash.com/photo-1593720213681-e9a8778330a7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQ4NDY1MTR8&ixlib=rb-4.0.3&q=85');">
+          <div class="absolute bottom-0 bg-black bg-opacity-50 text-white p-4 w-full">
+            <h3 class="text-xl font-semibold">Web Development</h3>
+          </div>
+        </div>
+        <div class="carousel-item bg-cover bg-center hidden" style="background-image: url('https://images.unsplash.com/photo-1608452964553-9b4d97b2752f?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQ4NTE0ODF8&ixlib=rb-4.0.3&q=85');">
+          <div class="absolute bottom-0 bg-black bg-opacity-50 text-white p-4 w-full">
+            <h3 class="text-xl font-semibold">Web Programming</h3>
+          </div>
+        </div>
+        <div class="carousel-item bg-cover bg-center hidden" style="background-image: url('https://images.unsplash.com/photo-1521931961826-fe48677230a5?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQ4NTE4MDJ8&ixlib=rb-4.0.3&q=85');">
+          <div class="absolute bottom-0 bg-black bg-opacity-50 text-white p-4 w-full">
+            <h3 class="text-xl font-semibold">Android Studio</h3>
+          </div>
+        </div>
+
+        <!-- Carousel Controls -->
+        <button id="prev" class="absolute top-1/2 transform -translate-y-1/2 left-2 bg-gray-800 text-white p-2 rounded-full">
+          &lt;
+        </button>
+        <button id="next" class="absolute top-1/2 transform -translate-y-1/2 right-2 bg-gray-800 text-white p-2 rounded-full">
+          &gt;
+        </button>
+      </div>
+    </section>
+
+    <section id="about" class="hidden mb-8">
+      <h2 class="text-2xl font-bold mb-4">About</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="about-card bg-white p-4 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Visi</h3>
+          <p>Menjadi yang terbaik dalam bidang teknologi informasi.</p>
+        </div>
+        <div class="about-card bg-white p-4 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Misi</h3>
+          <p>Menyediakan solusi teknologi yang inovatif dan berkelanjutan.</p>
+        </div>
+        <div class="about-card bg-white p-4 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Tujuan</h3>
+          <p>Mencapai kepuasan pelanggan melalui layanan berkualitas tinggi.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="hidden mb-8">
+      <h2 class="text-2xl font-bold mb-4">Gallery</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Tambahkan konten galeri sesuai keinginan -->
+        <div class="gallery-card bg-white p-4 rounded-lg shadow-md">
+          <img src="https://images.unsplash.com/photo-1593720213681-e9a8778330a7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQ4NDY1MTR8&ixlib=rb-4.0.3&q=85" alt="Gallery 1" class="w-full h-48 object-cover rounded-lg">
+          <p class="text-center mt-2">Gallery 1</p>
+        </div>
+        <!-- Tambahkan lebih banyak gambar di sini -->
+        <div class="gallery-card bg-white p-4 rounded-lg shadow-md">
+          <img src="https://images.unsplash.com/photo-1593720213681-e9a8778330a7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQ4NDY1MTR8&ixlib=rb-4.0.3&q=85" alt="Gallery 1" class="w-full h-48 object-cover rounded-lg">
+          <p class="text-center mt-2">Gallery 1</p>
+        </div>
+        <!-- Tambahkan lebih banyak gambar di sini -->
+        <div class="gallery-card bg-white p-4 rounded-lg shadow-md">
+          <img src="https://images.unsplash.com/photo-1593720213681-e9a8778330a7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQ4NDY1MTR8&ixlib=rb-4.0.3&q=85" alt="Gallery 1" class="w-full h-48 object-cover rounded-lg">
+          <p class="text-center mt-2">Gallery 1</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="hidden mb-8">
+      <h2 class="text-2xl font-bold mb-4">Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="project-card bg-white p-4 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Project 1</h3>
+          <p>Deskripsi singkat tentang project 1.</p>
+        </div>
+        <div class="project-card bg-white p-4 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Project 2</h3>
+          <p>Deskripsi singkat tentang project 2.</p>
+        </div>
+        <div class="project-card bg-white p-4 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Project 3</h3>
+          <p>Deskripsi singkat tentang project 3.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="hidden">
+      <h2 class="text-2xl font-bold mb-4">Contact</h2>
+      <div class="flex flex-col lg:flex-row lg:space-x-8">
+        <div class="map w-full lg:w-1/2 h-96 bg-gray-200 mb-4 lg:mb-0">
+          <p class="text-center pt-24">Map Placeholder</p>
+        </div>
+        <form id="myForm" enctype="multipart/form-data" class="w-full lg:w-1/2 bg-white p-4 rounded-lg shadow-md space-y-4">
+          <!-- Form Fields -->
+
+          <div>
+            <label for="name" class="block text-gray-700">Nama:</label>
+            <input type="text" id="name" name="name" class="w-full border border-gray-300 rounded-lg p-2">
+          </div>
+
+          <div>
+            <label for="email" class="block text-gray-700">Email:</label>
+            <input type="email" id="email" name="email" class="w-full border border-gray-300 rounded-lg p-2">
+          </div>
+
+          <div>
+            <label for="phone" class="block text-gray-700">Telepon:</label>
+            <input type="text" name="phone" id="phone" class="w-full border border-gray-300 rounded-lg p-2" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="12" minlength="10" required>
+          </div>
+
+          <div>
+            <label for="address" class="block text-gray-700">Alamat:</label>
+            <textarea id="address" name="address" class="w-full border border-gray-300 rounded-lg p-2"></textarea>
+          </div>
+          <div>
+            <label for="message" class="block text-gray-700">Pesan:</label>
+            <textarea id="message" name="message" class="w-full border border-gray-300 rounded-lg p-2"></textarea>
+          </div>
+          <div>
+            <label for="photo" class="block text-sm font-medium">Upload Photo</label>
+            <input type="file" id="photo" name="photo" accept="image/jpeg,image/png" capture="user" class="mt-1 block w-full" required>
+          </div>
+          <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg">Kirim</button>
+          <div id="form-notification" class="mt-4"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Section Kursus -->
+    <section id="computer-course-link" class="hidden">
+      <h2 class="text-2xl font-bold mb-4">Kursus Komputer</h2>
+      <p>Dalam kursus ini, Anda akan mempelajari dasar-dasar penggunaan komputer, termasuk sistem operasi, manajemen file, dan perangkat lunak produktivitas seperti Microsoft Office. Kursus ini cocok untuk pemula yang ingin memperdalam pemahaman mereka tentang komputer dan meningkatkan keterampilan mereka dalam menggunakan perangkat keras dan perangkat lunak komputer.</p>
+      <ul class="list-disc pl-5 mt-4">
+        <li>Pengenalan Sistem Operasi (Windows, macOS)</li>
+        <li>Manajemen File dan Folder</li>
+        <li>Penggunaan Microsoft Office (Word, Excel, PowerPoint)</li>
+        <li>Pengaturan dan Pemeliharaan Komputer</li>
+      </ul>
+      <button class="continue-course bg-blue-600 text-white py-2 px-4 mt-2 rounded">Lanjut Kursus</button>
+    </section>
+
+    <section id="web-course-link" class="hidden">
+      <h2 class="text-2xl font-bold mb-4">Kursus Web Programming</h2>
+      <p>Kursus ini dirancang untuk mengajarkan Anda bagaimana membangun website yang interaktif dan responsif menggunakan HTML, CSS, dan JavaScript. Anda juga akan diperkenalkan dengan framework web seperti Bootstrap dan Tailwind CSS, serta belajar cara mengelola data dengan menggunakan API.</p>
+      <ul class="list-disc pl-5 mt-4">
+        <li>Dasar-dasar HTML5 dan CSS3</li>
+        <li>Pembuatan Layout Responsif dengan Flexbox dan Grid</li>
+        <li>JavaScript untuk Interaktivitas</li>
+        <li>Pengenalan ke Framework (Bootstrap, Tailwind CSS)</li>
+        <li>Menggunakan API untuk Pengelolaan Data</li>
+      </ul>
+      <button class="continue-course bg-blue-600 text-white py-2 px-4 mt-2 rounded">Lanjut Kursus</button>
+    </section>
+
+    <section id="android-course-link" class="hidden">
+      <h2 class="text-2xl font-bold mb-4">Kursus Android Studio</h2>
+      <p>Kursus ini akan membimbing Anda melalui pengembangan aplikasi Android dari awal hingga akhir menggunakan Android Studio. Anda akan mempelajari cara membuat aplikasi yang intuitif dan menarik dengan berbagai komponen Android, serta mengoptimalkan aplikasi Anda untuk berbagai jenis perangkat.</p>
+      <ul class="list-disc pl-5 mt-4">
+        <li>Pengenalan Android Studio dan Struktur Proyek</li>
+        <li>Pembuatan Layout dan Desain UI</li>
+        <li>Pengelolaan Aktivitas dan Fragment</li>
+        <li>Implementasi Database dengan SQLite</li>
+        <li>Publikasi Aplikasi ke Google Play Store</li>
+      </ul>
+      <button class="continue-course bg-blue-600 text-white py-2 px-4 mt-2 rounded">Lanjut Kursus</button>
+    </section>
+
+    <!-- Pendaftaran -->
+    <section id="registration-form" class="mb-8">
+      <h2 class="text-2xl font-bold mb-4">Formulir Pendaftaran Kursus</h2>
+      <form id="course-form" class="bg-white p-6 rounded shadow-md">
+        <div class="mb-4">
+          <label for="kursus" class="block text-sm font-medium">Pilih Kursus:</label>
+          <select id="kursus" name="kursus" onchange="updateBiaya()" class="mt-1 p-2 w-full border rounded">
+            <option value="">-- Pilih Kursus --</option>
+            <option value="komputer">Kursus Komputer</option>
+            <option value="web">Kursus Web Programming</option>
+            <option value="android">Kursus Android Studio</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label for="biaya" class="block text-sm font-medium">Biaya Pendaftaran:</label>
+          <input type="text" id="biaya" name="biaya" class="mt-1 p-2 w-full border rounded bg-gray-100 text-gray-700" readonly>
+        </div>
+        <div class="mb-4">
+          <label for="full-name" class="block text-sm font-medium">Nama Lengkap</label>
+          <input type="text" id="full-name" class="mt-1 p-2 w-full border rounded">
+        </div>
+        <div class="mb-4">
+          <label for="birthplace" class="block text-sm font-medium">Tempat Lahir</label>
+          <input type="text" id="birthplace" class="mt-1 p-2 w-full border rounded">
+        </div>
+        <div class="mb-4">
+          <label for="birthdate" class="block text-sm font-medium">Tanggal Lahir</label>
+          <input type="date" id="birthdate" class="mt-1 p-2 w-full border rounded">
+        </div>
+        <div class="mb-4">
+          <label for="mother-name" class="block text-sm font-medium">Nama Ibu</label>
+          <input type="text" id="mother-name" class="mt-1 p-2 w-full border rounded">
+        </div>
+        <div class="mb-4">
+          <label for="father-name" class="block text-sm font-medium">Nama Ayah</label>
+          <input type="text" id="father-name" class="mt-1 p-2 w-full border rounded">
+        </div>
+        <div class="mb-4">
+          <label for="education" class="block text-sm font-medium">Pendidikan</label>
+          <select id="education" class="mt-1 p-2 w-full border rounded">
+            <option value="">Pilih Pendidikan</option>
+            <option value="SMA">SMA</option>
+            <option value="Diploma">Diploma</option>
+            <option value="Sarjana">Sarjana</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label for="job" class="block text-sm font-medium">Pekerjaan</label>
+          <select id="job" class="mt-1 p-2 w-full border rounded">
+            <option value="">Pilih Pekerjaan</option>
+            <option value="Pelajar">Pelajar</option>
+            <option value="Pegawai">Pegawai</option>
+            <option value="Wiraswasta">Wiraswasta</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label for="phone" class="block text-sm font-medium">Nomor Telepon</label>
+          <input type="tel" id="phone" class="mt-1 p-2 w-full border rounded">
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block text-sm font-medium">Email</label>
+          <input type="email" id="email" class="mt-1 p-2 w-full border rounded">
+        </div>
+        <div class="mb-4">
+          <label for="address" class="block text-sm font-medium">Alamat</label>
+          <textarea id="address" class="mt-1 p-2 w-full border rounded"></textarea>
+        </div>
+        <div class="mb-4">
+          <label for="payment-method" class="block text-sm font-medium">Pilihan Pembayaran</label>
+          <select id="payment-method" class="mt-1 p-2 w-full border rounded">
+            <option value="">Pilih Metode Pembayaran</option>
+            <option value="GoPay">GoPay</option>
+            <option value="LinkAja">LinkAja</option>
+            <option value="PayPal">PayPal</option>
+          </select>
+        </div>
+        <div class="flex justify-between">
+          <button type="button" id="back-button" class="bg-gray-600 text-white py-2 px-4 rounded">Kembali</button>
+          <button type="submit" id="submit-button" class="bg-green-600 text-white py-2 px-4 rounded" disabled>Bayar Sekarang</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-600 text-white py-4 mt-8 w-full">
+      <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+        <div class="text-center md:text-left mb-4 md:mb-0">
+          <p>&copy; 2024 Imat Abu Kamal. All rights reserved.</p>
+        </div>
+        <div class="flex space-x-4">
+          <a href="https://www.facebook.com" target="_blank" class="text-white">
+            <svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M22 12.1c0-5.5-4.5-10-10-10S2 6.6 2 12.1c0 5 3.7 9.1 8.5 9.9v-7H7.6v-2.9h2.9v-2.3c0-2.8 1.6-4.3 4.1-4.3 1.2 0 2.4.2 2.4.2v2.6h-1.3c-1.3 0-1.7 1-1.7 1.8v2.1h3l-.4 2.9h-2.6v7c4.8-.8 8.5-4.9 8.5-9.9z" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com" target="_blank" class="text-white">
+            <svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M12 2.2c3.1 0 3.5 0 4.8.1 1.2.1 2 .3 2.5.5.7.3 1.2.7 1.7 1.2.5.5.9 1 .2 1.7.2.5.4 1.3.5 2.5.1 1.2.1 1.7.1 4.8s0 3.5-.1 4.8c-.1 1.2-.3 2-.5 2.5-.3.7-.7 1.2-1.2 1.7-.5.5-1 .9-1.7 1.2-.5.2-1.3.4-2.5.5-1.2.1-1.7.1-4.8.1s-3.5 0-4.8-.1c-1.2-.1-2-.3-2.5-.5-.7-.3-1.2-.7-1.7-1.2-.5-.5-.9-1-.2-1.7-.2-.5-.4-1.3-.5-2.5C2.3 15.5 2.2 15 2.2 12s0-3.5.1-4.8c.1-1.2.3-2 .5-2.5.3-.7.7-1.2 1.2-1.7.5-.5 1-.9 1.7-1.2.5-.2 1.3-.4 2.5-.5C8.5 2.2 8.9 2.2 12 2.2m0-2.2C8.8 0 8.3 0 7.1.1 5.8.2 4.7.4 3.9.7 3.2.9 2.5 1.2 1.9 1.8.9 2.7.3 3.8.1 4.9.1 6.2 0 6.7 0 12s0 5.8.1 7.1c.2 1.2.4 2.3.7 3.1.3.8.6 1.5 1.2 2.1.5.5 1.2.9 1.7 1.2.5.2 1.3.4 2.5.5 1.2.1 1.7.1 4.8.1s3.5 0 4.8-.1c1.2-.1 2-.3 2.5-.5.7-.3 1.2-.7 1.7-1.2.5-.5.9-1 .2-1.7.2-.5.4-1.3.5-2.5.1-1.2.1-1.7.1-4.8s0-3.5-.1-4.8c-.1-1.2-.3-2-.5-2.5-.3-.7-.7-1.2-1.2-1.7-.5-.5-1-.9-1.7-1.2-.5-.2-1.3-.4-2.5-.5C15.5 2.2 15 2.2 12 2.2z" />
+            </svg>
+          </a>
+          <a href="https://www.youtube.com" target="_blank" class="text-white">
+            <svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M19.6 3.2C18.3 2.6 12 2.6 12 2.6s-6.3 0-7.6.6c-1.4.6-2.3 1.7-2.5 3-.4 2.1-.5 6.5-.5 6.5s0 4.3.5 6.5c.2 1.3 1.1 2.4 2.5 3 1.4.6 7.6.6 7.6.6s6.3 0 7.6-.6c1.4-.6 2.3-1.7 2.5-3 .4-2.1.5-6.5.5-6.5s0-4.3-.5-6.5c-.2-1.3-1.1-2.4-2.5-3zm-8.6 10V7.5l5.5 2.8-5.5 2.9z" />
+            </svg>
+          </a>
+          <a href="https://api.whatsapp.com/send?phone=YourPhoneNumber" target="_blank" class="text-white">
+            <svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M20.5 3.5C18.8 1.8 16.5 1 14 1c-2.6 0-5 1-6.8 2.8C5.1 5.6 4 7.9 4 10.5c0 2.1.8 4 2.2 5.4L5 22l6.1-1.6c1.4.6 3 1 4.7 1 2.5 0 4.8-.8 6.5-2.5 3.6-3.5 3.6-9.2.2-12.5zm-8.5 16c-1.5 0-2.9-.4-4.2-1l-1.1.3.2-1.2c-.8-1.4-1.2-3.1-1.2-4.7 0-2.2.9-4.3 2.5-5.8C9.8 5.9 11.9 5 14 5c2.2 0 4.3.9 5.8 2.5 3 3.3 3 8.5-.2 11.5-1.5 1.4-3.5 2-5.6 2zm3.3-6.4c-.2-.1-1.2-.6-1.4-.7-.3-.1-.5-.1-.7.1-.2.2-.3.7-.5 1-.1.2-.3.2-.5.1-.2-.1-.9-.3-1.7-.9-.6-.5-1.1-1.2-1.2-1.4-.1-.2 0-.4.1-.5.1-.1.2-.2.3-.4.1-.1.1-.2.2-.3.1-.2 0-.3-.1-.4-.1-.1-.7-1.7-.9-2.4-.2-.6-.5-.5-.7-.5-.1 0-.3 0-.4 0s-.4.1-.6.4c-.2.2-.8.7-.8 1.7s.8 2 1 2.3c.1.1 1.5 2.3 3.7 3.2.5.2 1 .4 1.4.5.6.2 1.1.1 1.5.1.5-.1 1.4-.5 1.6-1.1.2-.6.2-1.1.1-1.3 0-.1-.2-.1-.4-.2z" />
+            </svg>
+          </a>
+          <a href="mailto:your-email@example.com" class="text-white">
+            <svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M21 4H3C1.9 4 1 4.9 1 6v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H3V8l9 5.5 9-5.5v10zm-9-7L3 6h18l-9 5z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
   </main>
-
-  <footer>
-    <p>&copy; 2023 My Portfolio. All rights reserved.</p>
-  </footer>
-
-  <script src="script.js"></script>
-  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const sidebar = document.getElementById('sidebar');
-    menuToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('open');
-      menuToggle.classList.toggle('open');
-    });
-    document.addEventListener('click', (e) => {
-      if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
-        sidebar.classList.remove('open');
-        menuToggle.classList.remove('open');
+    function updateBiaya() {
+      var kursus = document.getElementById("kursus").value;
+      var biaya = document.getElementById("biaya");
+      if (kursus === "komputer") {
+        biaya.value = "Rp 1.800.000,00 (satu juta delapan ratus ribu rupiah)";
+      } else if (kursus === "web") {
+        biaya.value = "Rp 3.400.000,00 (tiga juta empat ratus ribu rupiah)";
+      } else if (kursus === "android") {
+        biaya.value = "Rp 4.478.000,00 (empat juta empat ratus tujuh puluh delapan ribu rupiah)";
+      } else {
+        biaya.value = "";
       }
-    });
-    // Membatasi input hanya angka untuk field NIS, NISN, NIK, KK, dan phone
-    const numberFields = ['nis', 'nisn', 'nik', 'kk', 'phone'];
-    numberFields.forEach((fieldId) => {
-      const field = document.getElementById(fieldId);
-      field.addEventListener('input', (e) => {
-        field.value = field.value.replace(/\D/, '');
-      });
-    });
+    }
   </script>
+
+<script src="script.js"></script>
 </body>
 
 </html>
