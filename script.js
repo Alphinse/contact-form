@@ -216,3 +216,69 @@ function updateBiaya() {
   };
   biaya.value = biayaMap[kursus] || "";
 }
+//
+const projects = [
+  {
+    id: 1,
+    name: "Web Development",
+    email: "project1@example.com",
+    job: "Developer",
+    skills: "HTML, CSS, JavaScript",
+    image:
+      "https://images.unsplash.com/photo-1531030874896-fdef6826f2f7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQ4NTM4Njh8&ixlib=rb-4.0.3&q=85"
+  },
+  {
+    id: 2,
+    name: "Web Programming",
+    email: "projects2@example.com",
+    job: "Programmer",
+    skills: "Java, Python, PHP",
+    image:
+      "https://images.unsplash.com/photo-1605379399642-870262d3d051?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQ4NTM4Njh8&ixlib=rb-4.0.3&q=85"
+  },
+  {
+    id: 3,
+    name: "Android Studio",
+    email: "project3@example.com",
+    job: "Mobile Developer",
+    skills: "Android, Java, Kotlin",
+    image:
+      "https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQ4NTQwNTB8&ixlib=rb-4.0.3&q=85"
+  }
+];
+
+// Ketika tombol "Detail" diklik
+document.querySelectorAll(".detail-btn").forEach((btn) => {
+  btn.addEventListener("click", function () {
+    const id = this.getAttribute("data-id");
+    const project = projects.find((p) => p.id == id);
+
+    // Sembunyikan semua card
+    document.getElementById("project-cards").classList.add("hidden");
+
+    // Tampilkan form detail dan isi datanya
+    document.getElementById("form-container").classList.remove("hidden");
+    document.getElementById("detail-image").src = project.image;
+    document.getElementById(
+      "detail-name"
+    ).textContent = `Nama: ${project.name}`;
+    document.getElementById(
+      "detail-email"
+    ).textContent = `Email: ${project.email}`;
+    document.getElementById(
+      "detail-job"
+    ).textContent = `Pekerjaan: ${project.job}`;
+    document.getElementById(
+      "detail-skills"
+    ).textContent = `Keahlian: ${project.skills}`;
+  });
+});
+
+// Ketika tombol "Kembali" diklik
+document.getElementById("back-btn").addEventListener("click", function () {
+  // Tampilkan kembali project cards
+  document.getElementById("project-cards").classList.remove("hidden");
+
+  // Sembunyikan form detail
+  document.getElementById("form-container").classList.add("hidden");
+});
