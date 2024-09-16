@@ -153,3 +153,66 @@ Object.keys(courseLinks).forEach((linkId) => {
     document.getElementById(courseLinks[linkId]).classList.remove("hidden");
   });
 });
+//
+// Mendapatkan elemen yang dibutuhkan untuk button/tombol
+const computerCourseButton = document.getElementById(
+  "continue-course-computer-btn"
+);
+const webCourseButton = document.getElementById("continue-course-web-btn");
+const androidCourseButton = document.getElementById(
+  "continue-course-android-btn"
+);
+
+// ini elemen yang di ambil dari card
+const computerCourseCard = document.getElementById("computer-course-card");
+const webCourseCard = document.getElementById("web-course-card");
+const androidCourseCard = document.getElementById("android-course-card");
+
+const registrationForm = document.getElementById("registration-form");
+const backButton = document.getElementById("back-button");
+
+// Fungsi untuk menyembunyikan semua kartu kursus
+function hideAllCourseCards() {
+  computerCourseCard.classList.add("hidden");
+  webCourseCard.classList.add("hidden");
+  androidCourseCard.classList.add("hidden");
+}
+
+// Event listener untuk tombol "Lanjut Kursus" (kursus komputer)
+computerCourseButton.addEventListener("click", function () {
+  hideAllCourseCards();
+  registrationForm.classList.remove("hidden");
+});
+
+// Event listener untuk tombol "Lanjut Kursus" (kursus web)
+webCourseButton.addEventListener("click", function () {
+  hideAllCourseCards();
+  registrationForm.classList.remove("hidden");
+});
+
+// Event listener untuk tombol "Lanjut Kursus" (kursus android)
+androidCourseButton.addEventListener("click", function () {
+  hideAllCourseCards();
+  registrationForm.classList.remove("hidden");
+});
+
+// Event listener untuk tombol "Kembali"
+backButton.addEventListener("click", function () {
+  registrationForm.classList.add("hidden");
+  computerCourseCard.classList.remove("hidden");
+  webCourseCard.classList.remove("hidden");
+  androidCourseCard.classList.remove("hidden");
+});
+//
+// Update course fee based on selection
+function updateBiaya() {
+  const kursus = document.getElementById("kursus").value;
+  const biaya = document.getElementById("biaya");
+  const biayaMap = {
+    komputer: "Rp 1.800.000,00 (satu juta delapan ratus ribu rupiah)",
+    web: "Rp 3.400.000,00 (tiga juta empat ratus ribu rupiah)",
+    android:
+      "Rp 4.478.000,00 (empat juta empat ratus tujuh puluh delapan ribu rupiah)"
+  };
+  biaya.value = biayaMap[kursus] || "";
+}
