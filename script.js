@@ -224,8 +224,7 @@ const projects = [
     email: "project1@example.com",
     job: "Developer",
     skills: "HTML, CSS, JavaScript",
-    image:
-      "https://images.unsplash.com/photo-1531030874896-fdef6826f2f7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQ4NTM4Njh8&ixlib=rb-4.0.3&q=85"
+    image: "image/P2705003100107.jpeg"
   },
   {
     id: 2,
@@ -233,8 +232,7 @@ const projects = [
     email: "projects2@example.com",
     job: "Programmer",
     skills: "Java, Python, PHP",
-    image:
-      "https://images.unsplash.com/photo-1605379399642-870262d3d051?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQ4NTM4Njh8&ixlib=rb-4.0.3&q=85"
+    image: ""
   },
   {
     id: 3,
@@ -242,8 +240,7 @@ const projects = [
     email: "project3@example.com",
     job: "Mobile Developer",
     skills: "Android, Java, Kotlin",
-    image:
-      "https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQ4NTQwNTB8&ixlib=rb-4.0.3&q=85"
+    image: ""
   }
 ];
 
