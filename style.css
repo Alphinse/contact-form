@@ -60,18 +60,12 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
-main {
+ main {
   margin-left: 15rem; /* Adjust according to your sidebar width */
   padding-top: 5rem; /* Adjust according to your header height */
   flex: 1;
-}
-footer {
-  background-color: #f8f9fa;
-  text-align: center;
-  padding: 1rem;
-  position: relative;
-}
-/* Aside */
+} 
+
 /* Pastikan elemen dropdown terlihat dengan baik */
 .group:hover .group-hover\:block {
   display: block;
