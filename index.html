@@ -18,7 +18,7 @@
 <body class="font-sans">
 
   <!-- Header -->
-  <header class="bg-blue-600 text-white p-4 fixed w-full top-0 z-50">
+  <header class="bg-blue-600 text-white p-4 fixed w-full top-0 z-30">
     <div class="container mx-auto flex justify-between items-center">
       <h1 class="text-xl font-bold">Imat <span>Abu</span> Kamal</h1>
       <button id="menu-toggle" class="lg:hidden block">
@@ -133,47 +133,47 @@
       </div>
     </section>
 
-     <section id="gallery" class="hidden mb-8">
+    <section id="gallery" class="hidden mb-8">
       <h2 class="text-2xl font-bold mb-4">Gallery</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <div class="cards bg-white p-4 rounded-lg shadow-md">
-          <img class="w-full h-48 object-contain mb-4 rounded-lg" src="image/P2705003100027.png" alt="Foto siswa">
+          <img class="w-full h-48 object-contain mb-4 rounded-lg" src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQ4NTMwOTh8&ixlib=rb-4.0.3&q=85" alt="Gallery Image 1">
           <h3 class="text-xl font-semibold mb-2">Image 1</h3>
           <p>Deskripsi gambar 1.</p>
         </div>
         <div class="cards bg-white p-4 rounded-lg shadow-md">
-          <img class="w-full h-48 object-contain mb-4 rounded-lg" src="image/P2705003100107.jpeg" alt="Foto siswa">
+          <img class="w-full h-48 object-contain mb-4 rounded-lg" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQ4NTMzMDN8&ixlib=rb-4.0.3&q=85" alt="Gallery Image 2">
           <h3 class="text-xl font-semibold mb-2">Image 2</h3>
           <p>Deskripsi gambar 2.</p>
         </div>
         <div class="cards bg-white p-4 rounded-lg shadow-md">
-          <img class="w-full h-48 object-contain mb-4 rounded-lg" src="image/P2705003100072.png" alt="Foto siswa">
+          <img class="w-full h-48 object-contain mb-4 rounded-lg" src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQ4NTMzMDN8&ixlib=rb-4.0.3&q=85" alt="Gallery Image 3">
           <h3 class="text-xl font-semibold mb-2">Image 3</h3>
           <p>Deskripsi gambar 3.</p>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="mb-8">
+    <section id="projects" class="mb-8 items-center items-center justify-center">
       <h2 class="text-2xl font-bold mb-4">Projects</h2>
-      <div id="project-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div id="project-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-center justify-center">
         <!-- Project Cards -->
         <div class="card bg-white p-4 rounded-lg shadow-md" data-id="1">
-          <img class="w-full h-48 object-contain mb-4 rounded-lg" src="image/P2705003100107.jpeg" alt="Project 1">
+          <img class="w-full h-96 object-cover mb-4 rounded-lg -translate-y-6" src="public/image/html5.png" alt="Project 1">
           <h3 class="text-xl font-semibold mb-2">Web Development</h3>
           <p>Email: project1@example.com</p>
           <button class="detail-btn bg-blue-500 text-white px-4 py-2 rounded-lg mt-2" data-id="1">Detail</button>
         </div>
 
         <div class="card bg-white p-4 rounded-lg shadow-md" data-id="2">
-          <img class="w-full h-48 object-contain mb-4 rounded-lg" src="image/P2705003100027.png" alt="Project 2">
+          <img class="w-full h-96 object-cover mb-4 rounded-lg -translate-y-6" src="public/image/php.png" alt="Project 2">
           <h3 class="text-xl font-semibold mb-2">Web Programming</h3>
           <p>Email: projects2@example.com</p>
           <button class="detail-btn bg-blue-500 text-white px-4 py-2 rounded-lg mt-2" data-id="2">Detail</button>
         </div>
 
         <div class="card bg-white p-4 rounded-lg shadow-md" data-id="3">
-          <img class="w-full h-48 object-contain mb-4 rounded-lg" src="image/P2705003100072.png" alt="Project 3">
+          <img class="w-full h-96 object-cover mb-4 rounded-lg -translate-y-6" src="public/image/codeigniter.png" alt="Project 3">
           <h3 class="text-xl font-semibold mb-2">Android Studio</h3>
           <p>Email: project3@example.com</p>
           <button class="detail-btn bg-blue-500 text-white px-4 py-2 rounded-lg mt-2" data-id="3">Detail</button>
@@ -182,7 +182,7 @@
 
       <!-- Form Detail Section (Hidden by default) -->
       <div id="form-container" class="hidden bg-white p-4 rounded-lg shadow-md">
-        <img id="detail-image" class="w-full h-32 object-cover mb-4 rounded-lg" src="" alt="Detail Image">
+        <img id="detail-image" class="w-full h-96 object-cover mb-4 rounded-lg" src="" alt="Detail Image">
         <h3 id="detail-name" class="text-xl font-semibold mb-2">Nama:</h3>
         <p id="detail-email">Email:</p>
         <p id="detail-job">Pekerjaan:</p>
@@ -198,7 +198,7 @@
         <div class="map w-full lg:w-1/2 h-96 bg-gray-200 mb-4 lg:mb-0">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63836.96659999438!2d127.80735046540863!3d-0.11407492050781395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d62857929e6ec05%3A0x43b111b86ed4cd75!2sBukit%20Indah%2C%20Kec.%20Gane%20Tim.%2C%20Kabupaten%20Halmahera%20Selatan%2C%20Maluku%20Utara!5e0!3m2!1sid!2sid!4v1718112883908!5m2!1sid!2sid" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full"></iframe>
         </div>
-    
+
         <!-- Form and Contact Info -->
         <div class="w-full lg:w-1/2 space-y-4 mt-4">
           <!-- Contact Info with Icons -->
@@ -234,7 +234,6 @@
         </div>
       </div>
     </section>
-    
 
     <!-- Kursus -->
     <section id="computer-course-link" class="continue-course bg-white-600 text-blue py-2 px-4 rounded">

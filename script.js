@@ -40,47 +40,6 @@ document.getElementById("prev").addEventListener("click", () => {
   slides[currentSlide].classList.remove("hidden");
 });
 
-// Validasi dan pengiriman form contact
-document.getElementById("contact").addEventListener("submit", function (event) {
-  event.preventDefault();
-  const emailField = document.getElementById("email");
-  const phoneField = document.getElementById("phone");
-  const notification = document.getElementById("form-notification");
-
-  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|id|co.id|org)$/;
-  const phonePattern = /^\d{10,12}$/;
-
-  if (!emailPattern.test(emailField.value)) {
-    notification.textContent =
-      "Email tidak valid. Harus diakhiri dengan .com, .id, .co.id, atau .org.";
-    notification.style.color = "red";
-    notification.classList.remove("hidden");
-    return;
-  }
-
-  if (!phonePattern.test(phoneField.value)) {
-    notification.textContent =
-      "Nomor telepon harus berisi 10 sampai 12 digit angka.";
-    notification.style.color = "red";
-    notification.classList.remove("hidden");
-    return;
-  }
-
-  const isSuccess = true; // Simulasi hasil pengiriman
-
-  if (isSuccess) {
-    notification.textContent = "Pesan berhasil dikirim!";
-    notification.style.color = "green";
-    notification.classList.remove("hidden");
-    setTimeout(() => notification.classList.add("hidden"), 3000);
-    document.getElementById("myForm").reset();
-  } else {
-    notification.textContent = "Pesan gagal dikirim. Coba lagi.";
-    notification.style.color = "red";
-    notification.classList.remove("hidden");
-  }
-});
-
 // Event Listener untuk course card dan form pendaftaran
 document.addEventListener("DOMContentLoaded", function () {
   const courseCards = document.querySelectorAll(".course-card");
@@ -224,7 +183,8 @@ const projects = [
     email: "project1@example.com",
     job: "Developer",
     skills: "HTML, CSS, JavaScript",
-    image: "image/P2705003100107.jpeg"
+    image:
+      "https://images.unsplash.com/photo-1531030874896-fdef6826f2f7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQ4NTM4Njh8&ixlib=rb-4.0.3&q=85"
   },
   {
     id: 2,
@@ -232,7 +192,8 @@ const projects = [
     email: "projects2@example.com",
     job: "Programmer",
     skills: "Java, Python, PHP",
-    image: ""
+    image:
+      "https://images.unsplash.com/photo-1605379399642-870262d3d051?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQ4NTM4Njh8&ixlib=rb-4.0.3&q=85"
   },
   {
     id: 3,
@@ -240,7 +201,8 @@ const projects = [
     email: "project3@example.com",
     job: "Mobile Developer",
     skills: "Android, Java, Kotlin",
-    image: ""
+    image:
+      "https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQ4NTQwNTB8&ixlib=rb-4.0.3&q=85"
   }
 ];
 
@@ -279,3 +241,84 @@ document.getElementById("back-btn").addEventListener("click", function () {
   // Sembunyikan form detail
   document.getElementById("form-container").classList.add("hidden");
 });
+
+//
+// Fungsi validasi telepon
+function validatePhone() {
+  const phoneInput = document.getElementById("phone").value;
+  const phonePattern = /^08\d{10}$/; // Harus dimulai dengan "08" dan diikuti 10 digit angka
+  return phonePattern.test(phoneInput);
+}
+
+// Fungsi validasi email
+function validateEmail() {
+  const emailInput = document.getElementById("email").value;
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|co\.id|org|id)$/;
+  return emailPattern.test(emailInput);
+}
+
+// Fungsi untuk menampilkan dan mengarahkan pembayaran
+function handleSubmit(event) {
+  event.preventDefault(); // Mencegah form submit secara default
+  const phoneValid = validatePhone();
+  const emailValid = validateEmail();
+
+  if (!phoneValid) {
+    alert(
+      "Nomor telepon tidak valid! Nomor harus berisi 12 digit dan dimulai dengan '08'."
+    );
+    return;
+  }
+
+  if (!emailValid) {
+    alert(
+      "Email tidak valid! Harus diakhiri dengan .com, .co.id, .org, atau .id."
+    );
+    return;
+  }
+
+  // Jika valid, tampilkan data yang diinput
+  const course = document.getElementById("kursus").value;
+  const biaya = document.getElementById("biaya").value;
+  const fullName = document.getElementById("full-name").value;
+  const paymentMethod = document.getElementById("payment-method").value;
+
+  alert(
+    `Kursus: ${course}\nBiaya: ${biaya}\nNama Lengkap: ${fullName}\nMetode Pembayaran: ${paymentMethod}`
+  );
+
+  // Pengarahan ke halaman pembayaran
+  let paymentUrl;
+  switch (paymentMethod) {
+    case "GoPay":
+      paymentUrl = "https://midtrans.com/gojek"; // Contoh URL untuk GoPay
+      break;
+    case "LinkAja":
+      paymentUrl = "https://midtrans.com/linkaja"; // Contoh URL untuk LinkAja
+      break;
+    case "PayPal":
+      paymentUrl = "https://midtrans.com/paypal"; // Contoh URL untuk PayPal
+      break;
+    default:
+      alert("Pilih metode pembayaran yang valid!");
+      return;
+  }
+
+  window.open(paymentUrl, "_blank"); // Buka link pembayaran di tab baru
+}
+
+// Aktifkan tombol ketika kursus dipilih
+document.getElementById("course-form").addEventListener("change", function () {
+  const course = document.getElementById("kursus").value;
+  const paymentMethod = document.getElementById("payment-method").value;
+  const submitButton = document.getElementById("submit-button");
+
+  if (course && paymentMethod) {
+    submitButton.disabled = false; // Aktifkan tombol "Bayar Sekarang"
+  } else {
+    submitButton.disabled = true; // Nonaktifkan tombol
+  }
+});
+
+// Tangani tombol Bayar Sekarang
+document.getElementById("course-form").addEventListener("submit", handleSubmit);
